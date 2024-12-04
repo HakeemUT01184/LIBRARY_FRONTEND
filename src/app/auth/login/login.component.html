@@ -1,0 +1,85 @@
+<div class="container d-flex align-items-center justify-content-center vh-100" style="width: 1000px; height: 700px;">
+    <div class="card shadow-lg w-75 overflow-hidden">
+        <div class="row g-0">
+            <!-- Left Side - Login Form -->
+            <div class="col-md-7 p-4">
+                <div class="card-header bg-primary text-white text-center mb-3">
+                    <h3 class="mb-0">Login Form</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm">
+                        <!-- Email Field -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control rounded-3 border-0 shadow-sm"
+                                formControlName="email"
+                                placeholder="Enter your email"
+                                style="transition: all 0.3s ease;">
+                            <small
+                                class="text-danger"
+                                *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                                Field is required.
+                            </small>
+                        </div>
+
+                        <!-- Password Field with Eye Icon -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input
+                                    [type]="hidePassword ? 'password' : 'text'"
+                                    id="password"
+                                    class="form-control rounded-3 border-0 shadow-sm"
+                                    formControlName="password"
+                                    placeholder="Enter your password"
+                                    style="transition: all 0.3s ease;">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    (click)="hidePassword = !hidePassword">
+                                    <i class="bi"
+                                       [ngClass]="{'bi-eye': hidePassword, 'bi-eye-slash': !hidePassword}">
+                                    </i>
+                                </button>
+                            </div>
+                            <small
+                                class="text-danger"
+                                *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                                Field is required.
+                            </small>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="d-grid">
+                            <button
+                                type="button"
+                                class="btn btn-primary rounded-3 shadow-sm"
+                                [disabled]="loginForm.invalid"
+                                (click)="login()">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Side - Picture and Register Link -->
+            <div class="col-md-5 d-flex flex-column align-items-center justify-content-center bg-light p-4">
+                <!-- Library Clip Art -->
+                <img src="assets/library-clipart.png" alt="Library" class="img-fluid mb-3 rounded shadow-sm" style="max-height: 400px;">
+                <p class="text-center mb-0">
+                    Don't have an account? 
+                    <a routerLink="/register" class="text-primary fw-bold text-decoration-none">
+                        Register
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap Icons for Eye Icon -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">

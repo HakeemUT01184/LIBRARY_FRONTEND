@@ -1,0 +1,71 @@
+@import "../../../theme.scss";
+
+:host {
+  display: block;
+  width: 400px;
+}
+
+mat-card {
+  mat-card-header {
+    display: flex;
+    justify-content: center;
+
+    mat-card-title {
+      font-size: 2rem;
+      color: $dark-accent-A200;
+    }
+  }
+
+  mat-form-field {
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  mat-card-actions {
+    button {
+      margin: auto;
+      width: 80%;
+    }
+
+    h4 {
+      margin: 0;
+      padding-right: 1rem;
+    }
+  }
+}
+
+
+// ===============
+
+.card {
+  max-width: 500px;
+  margin: 2rem auto;
+
+  .btn {
+      i {
+          font-size: 1rem; /* Icon size adjustment */
+      }
+  }
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.card-footer p {
+  margin-bottom: 0;
+}
+
+
+// ----------
+
+.input-group .btn {
+  border-radius: 0 0.375rem 0.375rem 0; /* Matches Bootstrap input field border-radius */
+}
+.input-group input {
+  border-radius: 0.375rem 0 0 0.375rem; /* Ensures smooth integration */
+}
+
+
+// ----
+

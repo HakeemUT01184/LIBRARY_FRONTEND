@@ -1,0 +1,179 @@
+<!-- <mat-form-field color="accent" appearance="outline">
+        <mat-label>Search Books</mat-label>
+        <input matInput (input)="searchBooks(searchField.value)" #searchField>
+        <button mat-icon-button matSuffix>
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+
+
+
+    <mat-card>
+        <mat-card-content>
+            Showing Results for {{ getBookCount() }} Books.
+        </mat-card-content>
+    </mat-card>
+
+
+    <mat-accordion multi="true">
+        @for (item of booksToDisplay; track booksToDisplay) {
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{item.category | titlecase}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{item.subCategory | titlecase}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <table mat-table [dataSource]="item.books">
+
+
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+                </ng-container>
+
+        
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef> Title </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.title }}
+                    </td>
+                </ng-container>
+
+        
+                <ng-container matColumnDef="author">
+                    <th mat-header-cell *matHeaderCellDef> Book Author </th>
+                    <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+                </ng-container>
+
+        
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                </ng-container>
+
+        
+                <ng-container matColumnDef="available">
+                    <th mat-header-cell *matHeaderCellDef> Availablity </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.ordered ? "Not Available" : "Available"}}
+                    </td>
+                </ng-container>
+
+        
+                <ng-container matColumnDef="order">
+                    <th mat-header-cell *matHeaderCellDef> Order </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-raised-button color="accent"
+                                [disabled]="element.ordered" (click)="orderBook(element)">
+                            Order
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+            </table>
+        </mat-expansion-panel>
+        }
+
+    </mat-accordion> -->
+<div class="container-fluid  ">
+    <!-- Search Books Section (Light Blue Theme) -->
+
+    <div class="mb-4">
+        <div class="input-group">
+            <mat-form-field  appearance="outline" class="w-100">
+                <mat-label class="text-info">Search Books</mat-label>
+                <input matInput (input)="searchBooks(searchField.value)" #searchField
+                    class="form-control bg-info text-dark">
+                <button mat-icon-button matSuffix class="input-group-text ">
+                    <mat-icon class="text-dark">search</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- Results Count Section (Light Blue Theme) -->
+    <div class="card bg-light text-info mb-4">
+        <div class="card-body">
+            Showing Results for {{ getBookCount() }} Books.
+        </div>
+    </div>
+
+    <!-- Accordion for Book Categories and Books (Light Blue Theme) -->
+    <mat-accordion multi="true">
+        <ng-container *ngFor="let item of booksToDisplay; let i = index">
+            <mat-expansion-panel [expanded]="true" class="bg-light text-info">
+                <mat-expansion-panel-header class="bg-info text-dark">
+                    <mat-panel-title class="fs-5 text-dark">
+                        {{ item.category | titlecase }}
+                    </mat-panel-title>
+                    <mat-panel-description class="fs-6 text-muted">
+                        {{ item.subCategory | titlecase }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <div class="accordion-body bg-light text-dark">
+                    <table mat-table [dataSource]="item.books" class="table table-striped table-bordered text-dark">
+
+                        <!-- Id Column -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef class="text-center bg-info text-dark"> ID </th>
+                            <td mat-cell *matCellDef="let element" class="text-center" style="padding: 5px;"> {{
+                                element.id }} </td>
+                        </ng-container>
+
+                        <!-- Title Column -->
+                        <ng-container matColumnDef="title">
+                            <th mat-header-cell *matHeaderCellDef class="bg-info text-dark"> Title </th>
+                            <td mat-cell *matCellDef="let element" style="padding: 5px;"> {{ element.title }} </td>
+                        </ng-container>
+
+                        <!-- Author Column -->
+                        <ng-container matColumnDef="author">
+                            <th mat-header-cell *matHeaderCellDef class="bg-info text-dark"> Author </th>
+                            <td mat-cell *matCellDef="let element" style="padding: 5px;"> {{ element.author }} </td>
+                        </ng-container>
+
+                        <!-- Price Column -->
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef class="bg-info text-dark"> Price </th>
+                            <td mat-cell *matCellDef="let element" style="padding: 5px;"> {{ element.price }} </td>
+                        </ng-container>
+
+                        <!-- Availability Column -->
+                        <ng-container matColumnDef="available">
+                            <th mat-header-cell *matHeaderCellDef class="bg-info text-dark"> Availability </th>
+                            <td mat-cell *matCellDef="let element" style="padding: 5px;">
+                                <span class="badge bg-{{element.ordered ? 'danger' : 'success'}}">
+                                    {{ element.ordered ? 'Not Available' : 'Available' }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Order Column -->
+                        <ng-container matColumnDef="order">
+                            <th mat-header-cell *matHeaderCellDef class="bg-info text-dark"> Order </th>
+                            <td mat-cell *matCellDef="let element" style="padding: 5px;">
+                                <button mat-raised-button color="primary" [disabled]="element.ordered"
+                                    (click)="orderBook(element)" class="btn btn-outline-info">
+                                    Order
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <!-- Remove Table Borders for Rows -->
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="border-0"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns" class="border-0"
+                            style="padding: 5px;"></tr>
+
+                    </table>
+                </div>
+            </mat-expansion-panel>
+        </ng-container>
+    </mat-accordion>
+</div>
