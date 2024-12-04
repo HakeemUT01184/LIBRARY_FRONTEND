@@ -8,7 +8,7 @@ import { Book, BookCategory, Order, User, UserType } from '../../models/models';
   providedIn: 'root',
 })
 export class ApiService {
-  baseUrl: string = 'https://localhost:7197/api/Library/';
+  baseUrl: string = 'http://localhost:5152/api/Library/';
   userStatus: Subject<string> = new Subject();
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {}

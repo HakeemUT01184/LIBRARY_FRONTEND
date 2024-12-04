@@ -1,3 +1,6 @@
+
+
+
 mat-card {
   margin: 0.5rem auto 0;
   border: 1px solid white;
@@ -17,4 +20,11 @@ mat-nav-list {
       background-color: rgba($color: #fff, $alpha: 0.2);
     }
   }
+}
+
+.sidebar{
+  width: 400px;
+  height: 100% ;
+  color: aquamarine;
+
 }
