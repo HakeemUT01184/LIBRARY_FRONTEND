@@ -1,12 +1,35 @@
-<div *ngIf="loggedIn" class="headerContainer">
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm px-3">
-        <div class="container-fluid">
-            <a class="navbar-brand text-primary fw-bold" href="#">Pillars of Knowledge</a>
-            <div class="d-flex ms-auto align-items-center user-info">
-                <span class="text-dark me-3 fw-semibold">Hi, {{name}}</span>
-                <a class="btn btn-primary me-2 rounded-pill px-4" routerLink="/profile">Profile</a>
-                <button class="btn btn-outline-danger rounded-pill px-4" (click)="logout()">Log Out</button>
-            </div>
+<!-- <mat-toolbar color="primary">
+    <span>Library Management Sytem</span>
+    <span class="spacer"></span>
+    <div class="user-info">
+        @if (loggedIn) {
+        <div class="name">Hi, {{name}}</div>
+        }
+        <button mat-raised-button color="accent" routerLink="/profile">Profile</button>
+        <button mat-raised-button color="warn" (click)="logout()">Log
+            Out</button>
+    </div>
+</mat-toolbar> -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2F5233;">
+    <div class="container-fluid">
+      <!-- Title of the Navbar -->
+      <a class="navbar-brand text-white" href="#">PILLARS OF KNOWLEDGE</a>
+  
+      <!-- Spacer to push user info to the right (Bootstrap's ml-auto) -->
+      <div class="d-flex ms-auto align-items-center">
+        
+        <!-- User info display if logged in -->
+        <div *ngIf="loggedIn" class="me-3 text-white">
+          <span>Hi, {{name}}</span>
         </div>
-    </nav>
-</div>
+  
+        <!-- Profile and Log Out buttons -->
+        <button class="btn btn-outline-light ms-3" [routerLink]="('/login')">login</button>
+       
+        <button class="btn btn-outline-light ms-2" routerLink="/profile">Profile</button>
+        <button class="btn btn-danger ms-2" (click)="logout()">Log Out</button>
+      </div>
+    </div>
+  </nav>
+  
+  

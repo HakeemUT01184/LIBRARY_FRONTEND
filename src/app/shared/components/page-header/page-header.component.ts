@@ -25,7 +25,6 @@ export class PageHeaderComponent {
     });
   }
   logout() {
-    this.loggedIn=false;
     this.apiService.logOut();
   }
 }

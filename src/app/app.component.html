@@ -1,16 +1,37 @@
-<div>
-    <header>
+<!-- <mat-sidenav-container>
+
+    <mat-sidenav opened mode="side">
+        <page-side-nav></page-side-nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
         <page-header></page-header>
-    </header>
-    <div class="d-flex justify-content-between">
-        <div class="">
-            <page-side-nav> </page-side-nav>
-        </div>
-        <div>
+
+        <main>
             <router-outlet></router-outlet>
-        </div>
-    </div>
-    <footer>
+        </main>
+
         <page-footer></page-footer>
-    </footer>
-</div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container> -->
+<div class="container-fluid">
+    <!-- Sidebar -->
+    <div class="d-flex" id="sidebar-container">
+      <div id="sidebar" class=" col-md-3 col-lg-2 d-md-block sidebar">
+        <page-side-nav></page-side-nav>
+      </div>
+  
+      <!-- Main content -->
+      <div id="main-content" class="col-md-9 col-lg-10">
+        <page-header></page-header>
+  
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+  
+        <page-footer></page-footer>
+      </div>
+    </div>
+  </div>
+  

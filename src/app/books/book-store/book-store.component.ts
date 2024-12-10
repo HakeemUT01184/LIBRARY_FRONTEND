@@ -17,8 +17,6 @@ export class BookStoreComponent {
     'available',
     'order',
   ];
-
-
   books: Book[] = [];
   booksToDisplay: BooksByCategory[] = [
     {

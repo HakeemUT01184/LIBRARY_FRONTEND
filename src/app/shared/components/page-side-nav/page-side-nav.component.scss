@@ -1,30 +1,94 @@
-
-
-
-mat-card {
-  margin: 0.5rem auto 0;
-  border: 1px solid white;
-  width: 90%;
-  h1 {
-    letter-spacing: 3px;
-    text-align: center;
-  }
-}
-
-mat-nav-list {
-  margin-top: 1rem;
+/* Admin Panel Heading Styling */
+.admin-heading {
+  color: #337B01;  /* Color for the panel name */
+  font-size: 2.5rem;  /* Font size for larger screens */
+  font-weight: 600;  /* Slightly bold for emphasis */
+  letter-spacing: 2px;  /* Slight letter spacing for a modern look */
+  text-align: center;  /* Center align the title */
+  margin-bottom: 1rem;  /* Space below the title */
+  margin-top: 1rem;  /* Add a bit of margin at the top for better positioning */
   
-  a {
-    font-size: 1.2rem;
-    &.active-link {
-      background-color: rgba($color: #fff, $alpha: 0.2);
-    }
+  /* Background related color */
+  background-color: rgba(51, 123, 1, 0.1); /* Light background color matching the panel color */
+  padding: 1rem;  /* Padding around the heading */
+  border-radius: 10px;  /* Rounded corners for a more modern look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional subtle shadow for depth */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .admin-heading {
+    font-size: 2rem;  /* Adjust title font size for smaller screens */
+    letter-spacing: 1.5px;  /* Slightly smaller letter spacing */
+    margin-top: 0.5rem;  /* Adjust margin for smaller screens */
   }
 }
 
-.sidebar{
-  width: 400px;
-  height: 100% ;
-  color: aquamarine;
+@media (max-width: 480px) {
+  .admin-heading {
+    font-size: 1.6rem;  /* Further reduce font size for very small screens */
+    letter-spacing: 1px;  /* Further reduce letter spacing */
+  }
+}
 
+
+
+
+
+/* Side Navigation Styling */
+.nav {
+  position: fixed;   /* Keeps the nav bar fixed on the left side of the screen */
+  top: 0;            /* Aligns the nav bar at the top of the screen */
+  left: 0;           /* Aligns the nav bar to the left side */
+  height: 100vh;     /* Takes full height of the viewport */
+  width: 250px;      /* Adjust the width of the side nav bar */
+  background-color: #2F5233;  /* Deep green background */
+  border-radius: 0 10px 10px 0;  /* Rounded corners on the right */
+  padding-top: 2rem; /* Space for the content from the top */
+  z-index: 1000;     /* Ensures that the navbar stays on top of other content */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+/* Navigation Links inside Side Navbar */
+.nav-link {
+  font-size: 1.5rem;  /* Increased font size for readability */
+  color: white;  /* White text color for good contrast */
+  padding: 1rem 1.5rem;  /* Padding for bigger clickable area */
+  text-transform: uppercase;  /* Uppercase text for clarity */
+  /* Slightly rounded corners for nav links */
+  display: block;  /* Makes the links occupy full width */
+  transition: background-color 0.3s, color 0.3s;  /* Smooth transition on hover */
+}
+
+/* Hover Effect for Links */
+.nav-link:hover {
+  background-color: #337B01;  /* Darker background on hover */
+  color: #fff;  /* White text color on hover */
+}
+
+/* Active Link Style */
+.nav-link.active-link {
+  background-color:#337B01;   /* Slightly intense color for active link */
+  color: #fff;  /* White text color for active link */
+  font-weight: bold;  /* Bold text for active link */
+}
+
+/* Media Query for Smaller Screens (Mobile/Tablet) */
+@media (max-width: 768px) {
+  .nav {
+    width: 100%;   /* Full width on smaller screens */
+    height: auto;  /* Let the height adjust according to the content */
+    position: relative;  /* Make it relative instead of fixed */
+  }
+
+  .nav-link {
+    font-size: 1.2rem;  /* Slightly smaller font for smaller screens */
+    padding: 1rem;  /* Adjust padding */
+  }
+}
+
+/* Add some space to the content to prevent it from being hidden under the side navbar */
+.main-content {
+  margin-left: 250px; /* This ensures the main content is not hidden behind the sidebar */
+  padding: 2rem;  /* Add padding to the main content for better spacing */
 }

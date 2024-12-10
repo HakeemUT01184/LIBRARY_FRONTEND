@@ -1,32 +1,34 @@
-<mat-card>
-    <mat-card-header>
+<div class="card">
+    <div class="card-header text-center">
         <h1>Return a Book</h1>
-    </mat-card-header>
+    </div>
 
-    <mat-card-content [formGroup]="returnForm">
+    <div class="card-body">
+        <form [formGroup]="returnForm">
+            
+            <!-- User ID Field -->
+            <div class="mb-3">
+                <label for="userId" class="form-label">User ID</label>
+                <input type="text" id="userId" class="form-control" formControlName="userId">
+            </div>
 
-        <mat-form-field appearance="outline" color="accent">
-            <mat-label>User ID</mat-label>
-            <input matInput formControlName="userId">
-        </mat-form-field>
+            <!-- Book ID Field -->
+            <div class="mb-3">
+                <label for="bookId" class="form-label">Book ID</label>
+                <input type="text" id="bookId" class="form-control" formControlName="bookId">
+            </div>
 
-        <mat-form-field appearance="outline" color="accent">
-            <mat-label>Book ID</mat-label>
-            <input matInput formControlName="bookId">
-        </mat-form-field>
+            <!-- Get Fine Section -->
+            <div class="fine mb-3 d-flex justify-content-between align-items-center">
+                <button type="button" class="btn btn-outline-primary" (click)="getFine()">Get Fine</button>
+                <span *ngIf="fineToPay !== null" class="fine-amount">
+                    {{ fineToPay }} Rs
+                </span>
+            </div>
 
-        <div class="fine">
-            <button mat-stroked-button color="accent" (click)="getFine()">
-                Get Fine
-            </button>
-            <span [ngStyle]="{'display': fineToPay === null ? 'none' : 'flex'}">
-                {{fineToPay}}Rs
-            </span>
-        </div>
+            <!-- Return Book Button -->
+            <button type="button" class="btn btn-primary w-100" (click)="returnBook()">Return Book</button>
 
-        <button mat-stroked-button color="accent" (click)="returnBook()">
-            Return Book
-        </button>
-
-    </mat-card-content>
-</mat-card>
+        </form>
+    </div>
+</div>

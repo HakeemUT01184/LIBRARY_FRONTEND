@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageTableComponent } from './components/page-table/page-table.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PageTableComponent } from './components/page-table/page-table.component
     PageSideNavComponent,
     PageNotFoundComponent,
     PageTableComponent,
+    HomeComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule, ReactiveFormsModule],
   exports: [

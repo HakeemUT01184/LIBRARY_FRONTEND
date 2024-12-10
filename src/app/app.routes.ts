@@ -10,6 +10,7 @@ import { ReturnBookComponent } from './books/return-book/return-book.component';
 import { ApprovalRequestsComponent } from './users/approval-requests/approval-requests.component';
 import { AllOrdersComponent } from './users/all-orders/all-orders.component';
 import { ViewUsersComponent } from './users/view-users/view-users.component';
+import { HomeComponent } from './shared/components/home/home.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,4 +24,7 @@ export const routes: Routes = [
   { path: "view-users", component: ViewUsersComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '**', component: PageNotFoundComponent },
+  { path: 'home2', component: HomeComponent },
+
+
 ];

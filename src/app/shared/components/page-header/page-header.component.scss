@@ -1,14 +1,46 @@
-mat-toolbar {
-  .spacer {
-    flex: 1 1 auto;
+// mat-toolbar {
+//   .spacer {
+//     flex: 1 1 auto;
+//   }
+
+//   .user-info {
+//     display: flex;
+//     align-items: center;
+
+//     button {
+//       margin-left: 1.5rem;
+//     }
+//   }
+// }
+
+.navbar {
+  padding: 0.5rem 1rem;
+  background-color: #2F5233 !important;  // Change the background color to #2F5233
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+
+  .btn {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.2rem; // Make navbar title smaller on small screens
   }
 
   .user-info {
-    display: flex;
-    align-items: center;
-
-    button {
-      margin-left: 1.5rem;
+    .btn {
+      margin-left: 0.5rem; // Smaller margin between buttons on small screens
     }
   }
 }
+

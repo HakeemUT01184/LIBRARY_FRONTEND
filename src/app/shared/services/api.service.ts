@@ -1,3 +1,5 @@
+
+
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -8,7 +10,7 @@ import { Book, BookCategory, Order, User, UserType } from '../../models/models';
   providedIn: 'root',
 })
 export class ApiService {
-  baseUrl: string = 'http://localhost:5152/api/Library/';
+  baseUrl: string = 'https://localhost:7197/api/Library/';
   userStatus: Subject<string> = new Subject();
 
   constructor(private http: HttpClient, private jwt: JwtHelperService) {}
@@ -43,7 +45,6 @@ export class ApiService {
     if (!this.isLoggedIn()) return null;
     var decodedToken = this.jwt.decodeToken();
     var user: User = {
-      username:decodedToken.firstName+decodedToken.lastName,
       id: decodedToken.id,
       firstName: decodedToken.firstName,
       lastName: decodedToken.lastName,
