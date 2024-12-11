@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book, BooksByCategory } from '../../models/models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from '../../shared/services/api.service';
@@ -6,9 +6,9 @@ import { ApiService } from '../../shared/services/api.service';
 @Component({
   selector: 'book-store',
   templateUrl: './book-store.component.html',
-  styleUrl: './book-store.component.scss',
+  styleUrls: ['./book-store.component.scss'],
 })
-export class BookStoreComponent {
+export class BookStoreComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'title',
@@ -18,48 +18,42 @@ export class BookStoreComponent {
     'order',
   ];
   books: Book[] = [];
-  booksToDisplay: BooksByCategory[] = [
-    {
-      bookCategoryId: 1,
-      category: 'C',
-      subCategory: 'S',
-      books: [
-        {
-          id: 1,
-          title: 'T',
-          author: 'A',
-          price: 100,
-          ordered: false,
-          bookCategoryId: 1,
-          bookCategory: { id: 1, category: '', subCategory: '' },
-        },
-      ],
-    },
-  ];
+  booksToDisplay: BooksByCategory[] = [];
 
-  constructor(private apiService: ApiService, private snackBar: MatSnackBar) {
-    apiService.getBooks().subscribe({
+  // Track collapse state of each category
+  isCollapsed: boolean[] = [];
+
+  constructor(private apiService: ApiService, private snackBar: MatSnackBar) {}
+
+  ngOnInit(): void {
+    // Fetch books and update the display
+    this.apiService.getBooks().subscribe({
       next: (res: Book[]) => {
-        this.books = [];
-        res.forEach((b) => this.books.push(b));
-
+        this.books = res;
         this.updateList();
       },
     });
   }
 
+  // Updates the list of books by category
   updateList() {
     this.booksToDisplay = [];
+    this.isCollapsed = [];
+
     for (let book of this.books) {
       let categoryExists = false;
-      let categoryBook: BooksByCategory | null;
+      let categoryBook: BooksByCategory | null = null;
+
+      // Check if the category already exists in booksToDisplay
       for (let bookToDisplay of this.booksToDisplay) {
         if (bookToDisplay.bookCategoryId == book.bookCategoryId) {
           categoryExists = true;
           categoryBook = bookToDisplay;
+          break;
         }
       }
 
+      // Add book to the appropriate category
       if (categoryExists) {
         categoryBook!.books.push(book);
       } else {
@@ -69,27 +63,34 @@ export class BookStoreComponent {
           subCategory: book.bookCategory.subCategory,
           books: [book],
         });
+        // Initialize the collapse state for the new category (collapsed by default)
+        this.isCollapsed.push(false);
       }
     }
   }
 
+  // Handle search functionality
   searchBooks(value: string) {
     this.updateList();
     value = value.toLowerCase();
+
+    // Filter books based on the search value
     this.booksToDisplay = this.booksToDisplay.filter((bookToDisplay) => {
-      bookToDisplay.books = bookToDisplay.books.filter((book) => {
-        return book.title.toLowerCase().includes(value);
-      });
+      bookToDisplay.books = bookToDisplay.books.filter((book) =>
+        book.title.toLowerCase().includes(value)
+      );
       return bookToDisplay.books.length > 0;
     });
   }
 
+  // Get the total count of books in the store
   getBookCount() {
     let count = 0;
     this.booksToDisplay.forEach((b) => (count += b.books.length));
     return count;
   }
 
+  // Handle book ordering functionality
   orderBook(book: Book) {
     this.apiService.orderBook(book).subscribe({
       next: (res) => {
@@ -100,9 +101,7 @@ export class BookStoreComponent {
           returnDate.setDate(today.getDate() + 10);
 
           this.snackBar.open(
-            book.title +
-              ' has been ordered! You will have to return on ' +
-              returnDate.toDateString(),
+            `${book.title} has been ordered! You will have to return on ${returnDate.toDateString()}`,
             'OK'
           );
         } else {
@@ -113,5 +112,10 @@ export class BookStoreComponent {
         }
       },
     });
+  }
+
+  // Toggle the collapse state for a given category
+  toggleCollapse(index: number): void {
+    this.isCollapsed[index] = !this.isCollapsed[index]; // Toggle the collapse state
   }
 }

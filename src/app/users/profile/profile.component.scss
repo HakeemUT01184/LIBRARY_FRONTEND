@@ -1,27 +1,29 @@
-@import "../../../theme.scss";
+/* You can define global styles here */
+.card-header {
+  background-color: #2F5233; /* Dark Green */
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  margin-top:100px;
+}
 
-mat-card {
-  width: 500px;
+table {
+  margin-top: 1rem;
+}
 
-  mat-card-title {
-    font-weight: 600;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    color: $dark-accent-A200;
-  }
+table th,
+table td {
+  font-size: 1.3rem;
+  border-color: #2F5233;
+  font-style: normal;
+}
 
-  mat-card-content {
-    table {
-      margin-top: 1rem;
+table th {
+  /* Dark Green for header */
+  color: #2F5233;
+}
 
-      .mat-column-name {
-        border-right: 1px solid $dark-accent-A200;
-      }
-
-      .mat-mdc-header-cell,
-      .mat-mdc-cell {
-        font-size: 1.3rem;
-      }
-    }
-  }
+table td {
+  border-right: 1px solid #2F5233; /* Match the header border */
 }

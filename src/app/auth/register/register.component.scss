@@ -1,5 +1,8 @@
 @import "../../../theme.scss";
 
+// Set custom primary color to #2F5233 (Green)
+$primary: #2F5233; // This will be your new primary color
+
 :host {
   display: flex;
   justify-content: space-between;
@@ -17,9 +20,10 @@
 
       mat-card-title {
         font-size: 2rem;
-        color: $dark-accent-A200;
+        color: $primary;  // Change to the new primary color
       }
     }
+
     mat-grid-tile {
       mat-form-field {
         width: 100%;
@@ -30,6 +34,7 @@
       button {
         margin: auto;
         width: 80%;
+        background-color: $primary;  // Use the new primary color here as well
       }
       h4 {
         margin: 0;
@@ -54,4 +59,50 @@
       white-space: normal;
     }
   }
+}
+
+// Override Bootstrap's bg-primary class
+.bg-primary {
+  background-color: $primary !important;  // Use the new green color
+}
+
+// Button styles with custom color
+.btn-primary {
+  background-color: $primary !important;  // Use the new primary color
+  border-color: $primary !important;
+
+  &:hover {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+// Text link styles
+a {
+  color: $primary;
+
+  &:hover {
+    text-decoration: underline;
+    color: darken($primary, 10%); // Make the link color darker on hover
+  }
+}
+
+// Styling for the Register Form button
+.btn {
+  i {
+    font-size: 1rem; /* Adjust icon size */
+  }
+}
+
+// Background image for .col-md-5 (optional)
+.col-md-5 {
+  background-image: url("../../../assets/book-green.jpg"); // Correct relative path for image
+  background-size: cover; // Ensure the image covers the div without distortion
+  background-position: center; // Center the background image
+  min-height: 50vh; // Ensure the image container takes full viewport height
+  padding: 1rem; // Optional: padding around content inside the div
+}
+
+.form-label{
+  font-size: 17px;
 }

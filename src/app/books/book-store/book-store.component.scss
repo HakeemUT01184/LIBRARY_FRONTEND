@@ -1,49 +1,80 @@
-@import "../../../theme.scss";
-
 :host {
   display: block;
   padding: 1rem 0;
 }
 
-mat-form-field {
-  width: 500px;
+.form-group {
   margin: 0 auto;
   display: block;
 }
 
-mat-card {
-  width: max-content;
-  margin-bottom: 1rem;
-  mat-card-content {
-    font-size: 1.5rem;
-  }
+.card-body {
+  font-size: 1.5rem;
+  background-color: #f8f9fa; /* Light background for the card */
 }
 
-mat-accordion {
-  mat-panel-title {
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: $dark-accent-A200;
-  }
+.card-header {
+  background-color: white; /* Dark green header */
+  color:#777;
+  font-weight: bold;
+}
 
-  mat-panel-description {
-    font-style: italic;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-  }
+.accordion .card-header button {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color:  #2F5233;
+  text-shadow:#cc8a0e;
+   /* Match the theme color */
+}
 
-  table {
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.accordion .card-body {
+  font-size: 1.3rem;
+}
 
-    .mat-mdc-header-cell {
-      font-style: italic;
-      font-size: 1.2rem;
-    }
+.table {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    .mat-mdc-cell {
-      font-size: 1.2rem;
-    }
-  }
+.table th,
+.table td {
+  font-size: 1.2rem;
+}
+
+.table th {
+  background-color:white;  /* Header row with dark green background */
+  color: #2F5233;
+}
+
+.table td {
+  font-size: 1.2rem;
+}
+
+.table .btn {
+  background-color:white;
+  color:#2F5233;
+}
+
+.table .btn:disabled {
+  background-color: #ccc;
+  color: #777;
+}
+
+.input-group .form-control {
+  font-size: 1.1rem;
+}
+
+.input-group-append .btn {
+  background-color:white;
+  color: #2F5233;
+}
+
+.input-group-append .btn:hover {
+  background-color: white;
+}
+
+.card-header button {
+  text-decoration: none;
+  color: #b4e2b9;
 }

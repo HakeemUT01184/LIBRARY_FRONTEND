@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ApprovalRequestsComponent } from './approval-requests/approval-requests.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
+import { AppComponent } from '../app.component';
 
 @NgModule({
   declarations: [
@@ -15,5 +16,6 @@ import { ViewUsersComponent } from './view-users/view-users.component';
     ViewUsersComponent,
   ],
   imports: [SharedModule],
+  bootstrap:[AppComponent]
 })
 export class UsersModule {}

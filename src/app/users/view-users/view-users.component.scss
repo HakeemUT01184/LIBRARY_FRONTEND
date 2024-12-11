@@ -1,4 +1,18 @@
-mat-card {
-  width: max-content;
-  margin-bottom: 2rem;
+/* Apply custom green color to text and white background */
+.card-header {
+  background-color: white;
+  color: #2F5233; /* Text color is green */
+  text-align: center;
+  padding: 1.5rem; /* Adjust padding as needed */
+}
+
+/* Card body with white background */
+.card-body {
+  background-color: white; /* Ensure the background remains white */
+}
+
+/* Shadow and margin for the card */
+.card {
+  box-shadow: 0 4px 8px rgba(6, 66, 16, 0.1);
+  margin-bottom: 2rem; 
 }

@@ -4,7 +4,7 @@
             <!-- Left Side - Login Form -->
             <div class="col-md-7 p-4">
                 <div class="card-header bg-primary text-white text-center mb-3">
-                    <h3 class="mb-0">Login Form</h3>
+                    <h1 class="mb-0" style="font-size:x-large;" >Login Form</h1>
                 </div>
                 <div class="card-body">
                     <form [formGroup]="loginForm">
@@ -41,8 +41,7 @@
                                     class="btn btn-outline-secondary"
                                     (click)="hidePassword = !hidePassword">
                                     <i class="bi"
-                                       [ngClass]="{'bi-eye': hidePassword, 'bi-eye-slash': !hidePassword}">
-                                    </i>
+                                       [ngClass]="{'bi-eye': hidePassword, 'bi-eye-slash': !hidePassword}"></i>
                                 </button>
                             </div>
                             <small
@@ -58,7 +57,8 @@
                                 type="button"
                                 class="btn btn-primary rounded-3 shadow-sm"
                                 [disabled]="loginForm.invalid"
-                                (click)="login()">
+                                (click)="login()"
+                                style="background-color: #2F5233;">
                                 Login
                             </button>
                         </div>
@@ -69,10 +69,10 @@
             <!-- Right Side - Picture and Register Link -->
             <div class="col-md-5 d-flex flex-column align-items-center justify-content-center bg-light p-4">
                 <!-- Library Clip Art -->
-                <img src="assets/library-clipart.png" alt="Library" class="img-fluid mb-3 rounded shadow-sm" style="max-height: 400px;">
-                <p class="text-center mb-0">
+               
+                <p class="text-center mb-0 text-white " style="font-size:20px">
                     Don't have an account? 
-                    <a routerLink="/register" class="text-primary fw-bold text-decoration-none">
+                    <a routerLink="/register" class="text-white  fw-bold text-decoration-none" style="color: #2F5233; font-size:35px;">
                         Register
                     </a>
                 </p>

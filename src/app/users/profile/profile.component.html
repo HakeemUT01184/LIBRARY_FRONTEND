@@ -1,27 +1,24 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Profile Information</mat-card-title>
-    </mat-card-header>
-
-    <mat-card-content>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
-            </ng-container>
-
-            <!-- Value Column -->
-            <ng-container matColumnDef="value">
-                <th mat-header-cell *matHeaderCellDef> Value </th>
-                <td mat-cell *matCellDef="let element"> {{ element.value }} </td>
-            </ng-container>
-
-            <!-- Header and Row Definition -->
-            <tr mat-header-row *matHeaderRowDef="columns"></tr>
-            <tr mat-row *matRowDef="let row; columns: columns"></tr>
-
-        </table>
-    </mat-card-content>
-</mat-card>
+<div class="card" style="width: 500px; background-color: #f8f9fa;">
+    <div class="card-header" style="background-color: #2F5233; color: white; font-weight: bold; letter-spacing: 3px; font-size: 1.5rem;">
+      Profile Information
+    </div>
+    
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr style="background-color: #2F5233; color: white;">
+            <th scope="col">Name</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through dataSource and display each row -->
+          <tr *ngFor="let element of dataSource">
+            <td>{{ element.name }}</td>
+            <td>{{ element.value }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

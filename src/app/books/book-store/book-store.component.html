@@ -1,80 +1,81 @@
-<mat-form-field color="accent" appearance="outline">
-    <mat-label>Search Books</mat-label>
-    <input matInput (input)="searchBooks(searchField.value)" #searchField>
-    <button mat-icon-button matSuffix>
-        <mat-icon>search</mat-icon>
-    </button>
-</mat-form-field>
+<!-- Search Field -->
+<div class="form-group" style="width: 500px; margin: 0 auto;">
+  <label for="searchField" style="font-weight: bold; color: #2F5233;">Search Books</label>
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      id="searchField"
+      placeholder="Search books"
+      (input)="searchBooks(searchField.value)"
+      #searchField
+    />
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">
+        <i class="bi bi-search" style="color: #2F5233;"></i>
+      </button>
+    </div>
+  </div>
+</div>
 
-<mat-card>
-    <mat-card-content>
-        Showing Results for {{ getBookCount() }} Books.
-    </mat-card-content>
-</mat-card>
+<!-- Result Card -->
+<div class="card" style="background-color: #f8f9fa; margin-bottom: 1rem;">
+  <div class="card-body">
+    Showing Results for {{ getBookCount() }} Books.
+  </div>
+</div>
 
-<mat-accordion multi="true">
-    @for (item of booksToDisplay; track booksToDisplay) {
-    <mat-expansion-panel [expanded]="true">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                {{item.category | titlecase}}
-            </mat-panel-title>
-            <mat-panel-description>
-                {{item.subCategory | titlecase}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
+<!-- Accordion for Book Categories -->
+<div class="accordion" id="accordionExample">
+  <div *ngFor="let item of booksToDisplay; let i = index">
+    <div class="card">
+      <div class="card-header" id="heading{{i}}" style="background-color: white; color:#2F5233; ">
+        <h2 class="mb-0">
+          <button
+            class="btn btn-link"
+            type="button"
+            (click)="toggleCollapse(i)"
+            [attr.aria-expanded]="isCollapsed[i]"
+            [attr.aria-controls]="'collapse' + i"
+          >
+            <strong>{{ item.category | titlecase }}</strong> - {{ item.subCategory | titlecase }}
+          </button>
+        </h2>
+      </div>
 
-        <table mat-table [dataSource]="item.books">
-
-            <!-- Id Column -->
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef> ID </th>
-                <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
-            </ng-container>
-
-            <!-- Book Title Column -->
-            <ng-container matColumnDef="title">
-                <th mat-header-cell *matHeaderCellDef> Title </th>
-                <td mat-cell *matCellDef="let element"> {{ element.title }}
-                </td>
-            </ng-container>
-
-            <!-- Author Column -->
-            <ng-container matColumnDef="author">
-                <th mat-header-cell *matHeaderCellDef> Book Author </th>
-                <td mat-cell *matCellDef="let element"> {{element.author}} </td>
-            </ng-container>
-
-            <!-- Price Column -->
-            <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef> Price </th>
-                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-            </ng-container>
-
-            <!-- Available Column -->
-            <ng-container matColumnDef="available">
-                <th mat-header-cell *matHeaderCellDef> Availablity </th>
-                <td mat-cell *matCellDef="let element">
-                    {{element.ordered ? "Not Available" : "Available"}}
-                </td>
-            </ng-container>
-
-            <!-- Order Column -->
-            <ng-container matColumnDef="order">
-                <th mat-header-cell *matHeaderCellDef> Order </th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-raised-button color="accent"
-                            [disabled]="element.ordered" (click)="orderBook(element)">
-                        Order
-                    </button>
-                </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
+      <!-- Collapsible content -->
+      <div
+        [ngClass]="{'collapse': !isCollapsed[i], 'show': isCollapsed[i]}"
+        class="card-body"
+      >
+        <!-- Table of Books -->
+        <table class="table table-bordered">
+          <thead class="thead-dark" style="background-color: #2F5233; color: white;">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Book Author</th>
+              <th scope="col">Price</th>
+              <th scope="col">Availability</th>
+              <th scope="col">Order</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let element of item.books">
+              <td>{{ element.id }}</td>
+              <td>{{ element.title }}</td>
+              <td>{{ element.author }}</td>
+              <td>{{ element.price | currency }}</td>
+              <td>{{ element.ordered ? 'Not Available' : 'Available' }}</td>
+              <td>
+                <button class="btn btn-outline-secondary" [disabled]="element.ordered" (click)="orderBook(element)">
+                  Order
+                </button>
+              </td>
+            </tr>
+          </tbody>
         </table>
-    </mat-expansion-panel>
-    }
-
-</mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>
