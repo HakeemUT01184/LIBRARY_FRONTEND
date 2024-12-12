@@ -1,43 +1,4 @@
-// /* Card Header Styling with Gradient */
-// .card-header {
-//   background: white; /* Gradient from white to green */
-//   color: #2F5233; /* Green color for text */
-//   text-align: center; /* Center text alignment */
-//   padding: 1.5rem; /* Padding around the header */
-//   border-radius: 10px 10px 0 0; /* Rounded corners for the header */
-// }
 
-// /* Card Body Styling with Gradient */
-// .card-body {
-//   background: linear-gradient(145deg, #ffffff, #e6f2e3) !important; /* Gradient from white to light green */
-//   padding: 2rem; /* Padding around the card body */
-//   border-radius: 0 0 10px 10px; /* Rounded corners for the body */
-// }
-
-// /* Box Shadow for Card */
-// .card {
-//   box-shadow: 0 4px 8px rgba(6, 66, 16, 0.1); /* Light shadow for card */
-//   margin-bottom: 2rem; /* Space between cards */
-//   border-radius: 10px; /* Rounded corners for the entire card */
-// }
-
-// /* Styling for table content */
-// page-table {
-//   background-color: #fff; /* Background color for table */
-//   border-radius: 8px; /* Rounded corners for the table */
-// }
-
-// /* Responsive Styles for Small Screens */
-// @media (max-width: 768px) {
-//   .card-header h1 {
-//     font-size: 1.2rem; /* Smaller font size for header on small screens */
-//   }
-
-//   .card-body {
-//     padding: 1.5rem; /* Less padding for small screens */
-//   }
-// }
-// Custom styles for the card, header, and body
 .card-header {
   background: #2F5233;  // Gradient from white to green
   color: #2F5233;  // Green color for text

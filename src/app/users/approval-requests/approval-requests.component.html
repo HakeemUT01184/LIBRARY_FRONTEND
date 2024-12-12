@@ -16,8 +16,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of users">
-          <td>{{ user.userId }}</td>
-          <td>{{ user.userName }}</td>
+          <td>{{ user.id }}</td> <!-- changed user.userId to user.id -->
+          <td>{{ user.userName }}</td> <!-- ensure userName is being populated correctly -->
           <td>{{ user.email }}</td>
           <td>{{ user.userType }}</td>
           <td>{{ user.createdOn | date }}</td>

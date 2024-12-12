@@ -1,12 +1,11 @@
-
-    <!-- Heading for Admin Panel -->
-
-
-
-<div class="nav flex-column nav-pills mt-3" *ngIf="loggedNav" style=" color: #0d310d;">
+<div class="nav flex-column nav-pills mt-3" *ngIf="loggedNav" style="color: #0d310d;">
   <!-- Navigation Links -->
   <h1 class="text-center admin-heading">{{ panelName || 'Admin Panel' }}</h1>
   <a class="nav-link" *ngFor="let item of navItems" [routerLink]="'/' + item.link" routerLinkActive="active-link">
+    <!-- Adding Icons -->
+  
     {{ item.value }}
   </a>
+ 
+ 
 </div>
