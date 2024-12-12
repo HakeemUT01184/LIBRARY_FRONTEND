@@ -1,20 +1,57 @@
-mat-card {
-  width: max-content;
-  margin-bottom: 1rem;
-}
-.returned {
-  mat-card {
-    margin-top: 2rem;
-  }
+/* Custom Styling for Cards */
+.card {
+  margin-bottom: 1rem; /* Space between cards */
 }
 
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body h2 {
+  margin-bottom: 0;
+}
+
+/* Pending and Returned Section Specific Styles */
+.pending .card-body h2,
+.returned .card-body h2 {
+  font-size: 1.5rem;
+}
+
+/* Table Styling */
 table {
-  .mat-mdc-cell,
-  .mat-mdc-header-cell {
-    font-size: 1.1rem;
-  }
+  font-size: 1.1rem;
+  width: 100%;
+}
 
-  .mat-mdc-header-cell {
-    font-style: italic;
-  }
+th, td {
+  text-align: center; /* Centering content in table cells */
+  vertical-align: middle; /* Vertical centering */
+}
+
+th {
+  background-color: #0d310d; /* Dark background for table headers */
+  color: white; /* White text for the headers */
+  font-style: italic; /* Italicize header text */
+}
+
+/* Hover effect for rows */
+table tbody tr:hover {
+  background-color: #f5f5f5; /* Light gray background on hover */
+}
+
+/* Custom Button Style */
+.btn-warning {
+  background-color: #ff9800;
+  color: white;
+  border-color: #ff9800;
+}
+
+.btn-warning:hover {
+  background-color: #e68900;
+  border-color: #e68900;
+}
+
+/* Custom margin for the second section (returned orders) */
+.returned .card {
+  margin-top: 2rem;
 }

@@ -17,10 +17,13 @@ export class PageSideNavComponent {
   panelName: string = '';
   navItems: NavigationItem[] = [];
 
+  loggedNav:boolean=true;
+
   constructor(private apiService: ApiService, private router: Router) {
     apiService.userStatus.subscribe({
       next: (status) => {
         if (status == 'loggedIn') {
+          this.loggedNav=true;
           router.navigateByUrl('/home');
           let user = apiService.getUserInfo();
           if (user != null) {
@@ -44,6 +47,7 @@ export class PageSideNavComponent {
             }
           }
         } else if (status == 'loggedOff') {
+          this.loggedNav=false;
           this.panelName = 'Auth Panel';
           router.navigateByUrl('/login');
           this.navItems = [];

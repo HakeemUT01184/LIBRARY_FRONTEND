@@ -1,4 +1,6 @@
 export interface User {
+userName: any;
+userId: any;
   id: number;
   firstName: string;
   lastName: string;
@@ -45,6 +47,7 @@ export interface BooksByCategory {
 }
 
 export interface Order {
+email: any;
   id: number;
   userId: number;
   userName: string | null;

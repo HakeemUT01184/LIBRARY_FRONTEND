@@ -1,34 +1,116 @@
-<mat-card>
-    <mat-card-content>
-        <h1>Orders With Pending Returns (1)</h1>
+<!-- <div class="card mb-3" style="margin-top: 50px;">
+  <div class="card-body">
+      <h1>Orders With Pending Returns (1)</h1>
 
-        <button mat-raised-button color="accent" (click)="sendEmail()">
-            Send Email About Pending Returns
-        </button>
-        <button mat-raised-button color="accent" (click)="blockUsers()">
-            Block Overdue Users
-        </button>
-    </mat-card-content>
+      <button class="btn btn-accent" (click)="sendEmail()">
+          Send Email About Pending Returns
+      </button>
+      <button class="btn btn-accent" (click)="blockUsers()">
+          Block Overdue Users
+      </button>
+  </div>
 
-    <mat-card-footer>
-        @if (showProgressBar) {
-        <mat-progress-bar mode="indeterminate"
-                          color="accent">
-        </mat-progress-bar>
-        }
-    </mat-card-footer>
-</mat-card>
+  <div class="card-footer" *ngIf="showProgressBar">
+      <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+      </div>
+  </div>
+</div>
 
 <page-table [columns]="columnsForPendingReturns"
-            [dataSource]="ordersWithPendingReturns">
+          [dataSource]="ordersWithPendingReturns">
 </page-table>
 
-<mat-card>
-    <mat-card-content>
-        <h1>Orders With Completed Returns (2)</h1>
-    </mat-card-content>
-</mat-card>
+<div class="card mt-3">
+  <div class="card-body">
+      <h1>Orders With Completed Returns (2)</h1>
+  </div>
+</div>
 
 <page-table [columns]="columnsForCompletedReturns"
-            [dataSource]="ordersWithCompletedReturns">
-</page-table>
+          [dataSource]="ordersWithCompletedReturns">
+</page-table> -->
+<div class="card mb-3" style="margin-top: 50px;">
+  <div class="card-body">
+      <h1>Orders With Pending Returns (1)</h1>
+
+      <button class="btn btn-accent" (click)="sendEmail()">
+          Send Email About Pending Returns
+      </button>
+      <button class="btn btn-accent" (click)="blockUsers()">
+          Block Overdue Users
+      </button>
+  </div>
+
+  <div class="card-footer" *ngIf="showProgressBar">
+      <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+      </div>
+  </div>
+</div>
+
+<!-- Bootstrap Table for Pending Returns -->
+<div class="card mb-3">
+  <div class="card-body">
+      <h2>Pending Returns Table</h2>
+      <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+              <tr>
+                  <th>User ID</th>
+                  <th>User Name</th>
+                  <th>Email</th>
+                  <th>Order Date</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Loop through ordersWithPendingReturns -->
+              <tr *ngFor="let order of ordersWithPendingReturns">
+                  <td>{{ order.userId }}</td>
+                  <td>{{ order.userName }}</td>
+                  <td>{{ order.email }}</td>
+                  <td>{{ order.orderDate }}</td>
+                  <td>
+                      <!-- Example Action Button -->
+                      <button class="btn btn-warning" (click)="processPendingReturn(order)">
+                          Process Return
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<!-- Orders With Completed Returns -->
+<div class="card mt-3">
+  <div class="card-body">
+      <h1>Orders With Completed Returns (2)</h1>
+  </div>
+</div>
+
+<!-- Bootstrap Table for Completed Returns -->
+<div class="card mb-3">
+  <div class="card-body">
+      <h2>Completed Returns Table</h2>
+      <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+              <tr>
+                  <th>User ID</th>
+                  <th>User Name</th>
+                  <th>Email</th>
+                  <th>Return Date</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Loop through ordersWithCompletedReturns -->
+              <tr *ngFor="let order of ordersWithCompletedReturns">
+                  <td>{{ order.userId }}</td>
+                  <td>{{ order.userName }}</td>
+                  <td>{{ order.email }}</td>
+                  <td>{{ order.returnDate }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

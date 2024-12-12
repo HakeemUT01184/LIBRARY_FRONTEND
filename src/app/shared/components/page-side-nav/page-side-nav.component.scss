@@ -1,15 +1,15 @@
 /* Admin Panel Heading Styling */
 .admin-heading {
-  color: #337B01;  /* Color for the panel name */
+  color: #80c288;  /* Color for the panel name */
   font-size: 2.5rem;  /* Font size for larger screens */
   font-weight: 600;  /* Slightly bold for emphasis */
   letter-spacing: 2px;  /* Slight letter spacing for a modern look */
   text-align: center;  /* Center align the title */
   margin-bottom: 1rem;  /* Space below the title */
   margin-top: 1rem;  /* Add a bit of margin at the top for better positioning */
-  
-  /* Background related color */
-  background-color: rgba(51, 123, 1, 0.1); /* Light background color matching the panel color */
+
+  /* Linear Gradient from Dark Green to Light Green */
+  background: linear-gradient(to bottom, #376632, rgba(51, 123, 1, 0.1));  /* Dark green at the top, light green at the bottom */
   padding: 1rem;  /* Padding around the heading */
   border-radius: 10px;  /* Rounded corners for a more modern look */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional subtle shadow for depth */
@@ -31,10 +31,6 @@
   }
 }
 
-
-
-
-
 /* Side Navigation Styling */
 .nav {
   position: fixed;   /* Keeps the nav bar fixed on the left side of the screen */
@@ -42,20 +38,21 @@
   left: 0;           /* Aligns the nav bar to the left side */
   height: 100vh;     /* Takes full height of the viewport */
   width: 250px;      /* Adjust the width of the side nav bar */
-  background-color: #2F5233;  /* Deep green background */
+  background: #0d310d;  /* Deep green background */
   border-radius: 0 10px 10px 0;  /* Rounded corners on the right */
   padding-top: 2rem; /* Space for the content from the top */
   z-index: 1000;     /* Ensures that the navbar stays on top of other content */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+
 }
 
 /* Navigation Links inside Side Navbar */
 .nav-link {
   font-size: 1.5rem;  /* Increased font size for readability */
-  color: white;  /* White text color for good contrast */
+  color: rgb(224, 243, 226);  /* White text color for good contrast */
   padding: 1rem 1.5rem;  /* Padding for bigger clickable area */
   text-transform: uppercase;  /* Uppercase text for clarity */
-  /* Slightly rounded corners for nav links */
   display: block;  /* Makes the links occupy full width */
   transition: background-color 0.3s, color 0.3s;  /* Smooth transition on hover */
 }
@@ -63,13 +60,13 @@
 /* Hover Effect for Links */
 .nav-link:hover {
   background-color: #337B01;  /* Darker background on hover */
-  color: #fff;  /* White text color on hover */
+  color: white;  /* White text color on hover */
 }
 
 /* Active Link Style */
 .nav-link.active-link {
-  background-color:#337B01;   /* Slightly intense color for active link */
-  color: #fff;  /* White text color for active link */
+  background-color: #337B01;   /* Slightly intense color for active link */
+  color: white;  /* White text color for active link */
   font-weight: bold;  /* Bold text for active link */
 }
 

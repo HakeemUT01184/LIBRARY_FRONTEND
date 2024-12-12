@@ -1,9 +1,35 @@
-<mat-card>
-    <mat-card-content>
-        <h1>Pending Approval Requests ({{users.length}})</h1>
-    </mat-card-content>
-</mat-card>
+<div class="container mt-5">
+  <!-- Pending Approval Card -->
+  <div class="card pending-requests-card">
+    <div class="card-body">
+      <h1 class="card-title">Pending Approval Requests ({{ users.length }})</h1>
+    </div>
+  </div>
 
-<page-table [columns]="columns" [dataSource]="users"
-            (approve)="approve($event)">
-</page-table>
+  <!-- Table for Pending Requests -->
+  <div class="table-container mt-3">
+    <table class="table table-striped page-table">
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">{{ column | titlecase }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.userName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.userType }}</td>
+          <td>{{ user.createdOn | date }}</td>
+          <td>
+            <button
+              class="btn btn-success"
+              (click)="approve(user)">
+              Approve
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

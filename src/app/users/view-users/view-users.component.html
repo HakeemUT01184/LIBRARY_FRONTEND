@@ -1,12 +1,53 @@
-<div class="container mt-4">
-    <!-- Card Header with Custom Color -->
-    <div class="card shadow-lg">
-        <div class="card-header" style="background-color: white; color: #2F5233; text-align: center;">
-            <h1>All Users of Library</h1>
-        </div>
-        <div class="card-body" style="background-color: white;">
-            <page-table [columns]="columns" [dataSource]="users" (unblock)="unblockUser($event)">
-            </page-table>
-        </div>
+<!-- <div class="container mt-4" style="margin-top: 70px;">
+
+  <div class="card shadow-lg">
+
+    <div class="card-header text-center" style="background: linear-gradient(145deg, white, #2F5233); color: #2F5233;">
+      <h1>All Users of Library</h1>
     </div>
+    <div class="card-body" style="background: linear-gradient(145deg, #ffffff, #e6f2e3);">
+      <page-table [columns]="columns" [dataSource]="users" (unblock)="unblockUser($event)">
+      </page-table>
+    </div>
+  </div>
+</div> -->
+
+
+ <div class="container mt-4" >
+  <div class="card shadow-lg">
+    <div class="card-header text-center" style="background:  white">
+      <h1 style="margin-top:20px;font-size: x-large;">All Users of Library</h1>
+    </div>
+    <div class="card-body" style="background: linear-gradient(145deg, #ffffff, #e6f2e3);">
+      <table class="table table-bordered table-hover">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Created On</th>
+
+            <th scope="col">Type</th>
+            <th scope="col">Unblock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.mobileNumber }}</td>
+            <td>{{ user.createdOn }}</td>
+
+            <td>{{ user.userType }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="unblockUser(user)">Unblock</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 </div>

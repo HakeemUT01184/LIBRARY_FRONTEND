@@ -1,46 +1,43 @@
-// mat-toolbar {
-//   .spacer {
-//     flex: 1 1 auto;
-//   }
-
-//   .user-info {
-//     display: flex;
-//     align-items: center;
-
-//     button {
-//       margin-left: 1.5rem;
-//     }
-//   }
-// }
-
+/* Navbar styling */
 .navbar {
   padding: 0.5rem 1rem;
-  background-color: #2F5233 !important;  // Change the background color to #2F5233
+  background-color: #2F5233 !important; /* Set background color to #2F5233 */
+  position: fixed; /* Fix the navbar to the top */
+  top: 0; /* Align it to the top of the page */
+  width: 100%; /* Ensure the navbar covers the full width of the page */
+  z-index: 1000; /* Ensure the navbar stays on top of other content */
 }
 
+/* Navbar title styling */
 .navbar-brand {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Size of the title */
+  margin-left: 10px; /* Add margin-left to avoid sticking to the left edge */
 }
 
+/* User info styling */
 .user-info {
   display: flex;
   align-items: center;
-
-  .btn {
-    margin-left: 1rem;
-  }
 }
 
+.user-info .btn {
+  margin-left: 1rem; /* Space between buttons */
+}
+
+/* For smaller screens */
 @media (max-width: 576px) {
   .navbar-brand {
-    font-size: 1.2rem; // Make navbar title smaller on small screens
+    font-size: 1.2rem; /* Smaller font size for the navbar title on small screens */
+    margin-left: 0; /* Remove left margin on small screens */
   }
 
-  .user-info {
-    .btn {
-      margin-left: 0.5rem; // Smaller margin between buttons on small screens
-    }
+  .user-info .btn {
+    margin-left: 0.5rem; /* Reduce margin between buttons on small screens */
   }
 }
 
+/* Adjust the body content to ensure it's not hidden behind the navbar */
+body {
+  padding-top: 80px; /* Give space at the top for the fixed navbar */
+}

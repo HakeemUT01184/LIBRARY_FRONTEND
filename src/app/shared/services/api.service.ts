@@ -54,6 +54,8 @@ export class ApiService {
       accountStatus: decodedToken.accountStatus,
       createdOn: decodedToken.createdOn,
       password: '',
+      userName: undefined,
+      userId: undefined
     };
     return user;
   }
@@ -98,6 +100,7 @@ export class ApiService {
               returned: order.returned,
               returnDate: order.returnDate,
               finePaid: order.finePaid,
+              email: undefined
             };
             return newOrder;
           });
@@ -141,6 +144,9 @@ export class ApiService {
     });
   }
 
+
+
+
   returnBook(userId: string, bookId: string, fine: number) {
     return this.http.get(this.baseUrl + 'ReturnBook', {
       params: new HttpParams()
@@ -176,6 +182,7 @@ export class ApiService {
             returned: order.returned,
             returnDate: order.returnDate,
             finePaid: order.finePaid,
+            email: undefined
           };
           return newOrder;
         });

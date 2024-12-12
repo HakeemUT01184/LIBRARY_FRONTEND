@@ -1,4 +1,92 @@
-mat-card {
-  margin-bottom: 2rem;
-  width: max-content;
+/* Card Styling */
+.card {
+  box-shadow: 0 4px 8px rgba(6, 66, 16, 0.1); /* Light shadow for the card */
+  margin-bottom: 2rem; /* Space between cards */
+  border-radius: 10px; /* Rounded corners for the entire card */
+}
+
+/* Card Header Styling */
+.card-header {
+  background: #4CAF50; /* Green background */
+  color: #ffffff; /* White color for text */
+  text-align: center;
+  padding: 1.5rem; /* Padding around the header */
+  border-bottom: 1px solid #ddd; /* Border below the header */
+  border-radius: 10px 10px 0 0; /* Rounded corners for the top */
+  border-bottom: 1px solid #ddd;
+}
+
+/* Card Body Styling with Gradient */
+.card-body {
+  background: linear-gradient(145deg, #ffffff, #e6f2e3); /* Gradient from white to light green */
+  padding: 2rem; /* Padding around the card body */
+  border-radius: 0 0 10px 10px; /* Rounded corners for the bottom */
+}
+
+/* Table Styling */
+.page-table {
+  width: 100%;
+  background-color: #ffffff; /* White background for the table */
+  border-radius: 8px; /* Rounded corners for the table */
+  margin-top: 2rem;
+
+  th, td {
+    text-align: center; /* Center-align the text */
+    vertical-align: middle; /* Align text vertically in the center */
+  }
+
+  /* Header Styling */
+  th {
+    background-color: #2F5233; /* Dark green background */
+    color:#ffffff;  /* White text color */
+    font-weight: bold; /* Bold text for the header */
+    text-transform: capitalize; /* Capitalize column names */
+    padding: 1rem; /* Padding inside table header */
+    font-size:larger;
+  }
+
+  /* Body Styling */
+  td {
+    background-color: #e6f2e3; /* Light green background for rows */
+    padding: 1rem; /* Padding inside table cells */
+  }
+
+  /* Hover effect for table rows */
+  tbody tr:hover {
+    background-color: #d1f7d7; /* Slightly darker green when hovering */
+  }
+
+  /* Approve Button Styling */
+  .btn {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-success {
+    background-color: #4CAF50; /* Green background for approve button */
+    border-color: #4CAF50; /* Same green color for border */
+    color: white;
+  }
+
+  .btn-success:hover {
+    background-color: #388E3C; /* Darker green on hover */
+    border-color: #2E7D32; /* Darker border on hover */
+  }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  /* Adjusting Table and Card Layout for Small Screens */
+  .card-header h1 {
+    font-size: 1.5rem; /* Smaller font size for header on small screens */
+  }
+
+  .card-body {
+    padding: 1.5rem; /* Less padding for small screens */
+  }
+
+  .page-table th, .page-table td {
+    font-size: 0.9rem; /* Smaller font size for table cells */
+  }
 }

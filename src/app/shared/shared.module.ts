@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageTableComponent } from './components/page-table/page-table.component';
 import { HomeComponent } from './components/home/home.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
     PageNotFoundComponent,
     PageTableComponent,
     HomeComponent,
+    LandingComponent,
   ],
   imports: [CommonModule, MaterialModule, RouterModule, ReactiveFormsModule],
   exports: [

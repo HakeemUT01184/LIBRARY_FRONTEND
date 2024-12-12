@@ -11,8 +11,10 @@ import { ApprovalRequestsComponent } from './users/approval-requests/approval-re
 import { AllOrdersComponent } from './users/all-orders/all-orders.component';
 import { ViewUsersComponent } from './users/view-users/view-users.component';
 import { HomeComponent } from './shared/components/home/home.component';
+import { LandingComponent } from './shared/components/landing/landing.component';
 
 export const routes: Routes = [
+  { path: '', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: BookStoreComponent },
@@ -23,8 +25,9 @@ export const routes: Routes = [
   { path: 'all-orders', component: AllOrdersComponent },
   { path: "view-users", component: ViewUsersComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: '**', component: LandingComponent },
   { path: 'home2', component: HomeComponent },
 
-
 ];
+
+

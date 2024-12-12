@@ -9,6 +9,9 @@ import { ApiService } from '../../shared/services/api.service';
   styleUrl: './all-orders.component.scss',
 })
 export class AllOrdersComponent {
+processPendingReturn(_t25: Order) {
+throw new Error('Method not implemented.');
+}
   columnsForPendingReturns: string[] = [
     'orderId',
     'userIdForOrder',

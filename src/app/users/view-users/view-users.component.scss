@@ -1,18 +1,97 @@
-/* Apply custom green color to text and white background */
+// /* Card Header Styling with Gradient */
+// .card-header {
+//   background: white; /* Gradient from white to green */
+//   color: #2F5233; /* Green color for text */
+//   text-align: center; /* Center text alignment */
+//   padding: 1.5rem; /* Padding around the header */
+//   border-radius: 10px 10px 0 0; /* Rounded corners for the header */
+// }
+
+// /* Card Body Styling with Gradient */
+// .card-body {
+//   background: linear-gradient(145deg, #ffffff, #e6f2e3) !important; /* Gradient from white to light green */
+//   padding: 2rem; /* Padding around the card body */
+//   border-radius: 0 0 10px 10px; /* Rounded corners for the body */
+// }
+
+// /* Box Shadow for Card */
+// .card {
+//   box-shadow: 0 4px 8px rgba(6, 66, 16, 0.1); /* Light shadow for card */
+//   margin-bottom: 2rem; /* Space between cards */
+//   border-radius: 10px; /* Rounded corners for the entire card */
+// }
+
+// /* Styling for table content */
+// page-table {
+//   background-color: #fff; /* Background color for table */
+//   border-radius: 8px; /* Rounded corners for the table */
+// }
+
+// /* Responsive Styles for Small Screens */
+// @media (max-width: 768px) {
+//   .card-header h1 {
+//     font-size: 1.2rem; /* Smaller font size for header on small screens */
+//   }
+
+//   .card-body {
+//     padding: 1.5rem; /* Less padding for small screens */
+//   }
+// }
+// Custom styles for the card, header, and body
 .card-header {
-  background-color: white;
-  color: #2F5233; /* Text color is green */
+  background: #2F5233;  // Gradient from white to green
+  color: #2F5233;  // Green color for text
   text-align: center;
-  padding: 1.5rem; /* Adjust padding as needed */
+  padding: 1.5rem;
+  border-bottom: 1px solid #ddd; // Adding a border for separation
 }
 
-/* Card body with white background */
 .card-body {
-  background-color: white; /* Ensure the background remains white */
+  background: linear-gradient(145deg, #ffffff, #e6f2e3);  // Light gradient for the card body
+  padding: 2rem;
 }
 
-/* Shadow and margin for the card */
-.card {
-  box-shadow: 0 4px 8px rgba(6, 66, 16, 0.1);
-  margin-bottom: 2rem; 
+// Table Styles
+.table {
+  th, td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: #2F5233;  // Green background for header
+    color: white;  // White text color
+  }
+
+  td {
+    background-color: #e6f2e3;  // Light green background for rows
+  }
+
+  // Hover effect for table rows
+  tbody tr:hover {
+    background-color: #d1f7d7;  // Slightly darker shade when hovering
+  }
+}
+
+// Custom Button Styles
+.btn-warning {
+  background-color: #ff9800;
+  border-color: #ff9800;
+  color: white;
+
+  &:hover {
+    background-color: #e68900;
+    border-color: #e68900;
+  }
+}
+
+// Make the table and card responsive for small screens
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 0.9rem;  // Smaller font size for better readability on small screens
+  }
+
+  .card-body {
+    padding: 1.5rem;  // Adjust padding for smaller screens
+  }
 }

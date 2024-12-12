@@ -1,15 +1,31 @@
-mat-card {
-  margin-bottom: 1rem;
+/* Custom Button Accent Style */
+.btn-accent {
+  background-color: #4CAF50; /* Green accent color */
+  color: white;
+  border: none;
+}
 
-  button {
-    margin-right: 1rem;
-  }
+.btn-accent:hover {
+  background-color: #388E3C; /* Darker green on hover */
+  border-color: #2E7D32;
+}
 
-  &:nth-of-type(2) {
-    margin-top: 2rem;
-  }
-  
-  mat-card-footer {
-    margin-top: 1rem;
-  }
+/* Custom Styling for the Tables */
+.table th {
+  background-color:  #2F5233; /* Dark green background */
+  color: white; /* White text color for the header */
+}
+
+/* Custom Margin for Cards */
+.card {
+  margin-bottom: 1.5rem; /* Space between the cards */
+}
+
+.card-body button {
+  margin-right: 1rem; /* Space between the buttons */
+}
+
+/* Footer Styling */
+.card-footer {
+  margin-top: 1rem;
 }
