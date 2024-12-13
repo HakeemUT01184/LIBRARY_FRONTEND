@@ -100,7 +100,8 @@ export class ApiService {
               returned: order.returned,
               returnDate: order.returnDate,
               finePaid: order.finePaid,
-              email: undefined
+              email: undefined,
+              user: undefined
             };
             return newOrder;
           });
@@ -182,7 +183,8 @@ export class ApiService {
             returned: order.returned,
             returnDate: order.returnDate,
             finePaid: order.finePaid,
-            email: undefined
+            email: undefined,
+            user: undefined
           };
           return newOrder;
         });

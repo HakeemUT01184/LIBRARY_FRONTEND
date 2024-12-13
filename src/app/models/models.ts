@@ -47,6 +47,7 @@ export interface BooksByCategory {
 }
 
 export interface Order {
+user: any;
 email: any;
   id: number;
   userId: number;

@@ -17,9 +17,10 @@
       <tbody>
         <tr *ngFor="let user of users">
           <td>{{ user.id }}</td> <!-- changed user.userId to user.id -->
-          <td>{{ user.userName }}</td> <!-- ensure userName is being populated correctly -->
+          <td>{{ user.firstName }}</td> <!-- ensure userName is being populated correctly -->
+          <td>{{ user.lastName}}</td>
+          <td>{{ user.userType}}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.userType }}</td>
           <td>{{ user.createdOn | date }}</td>
           <td>
             <button

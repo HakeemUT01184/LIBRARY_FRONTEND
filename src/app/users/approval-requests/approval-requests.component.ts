@@ -12,9 +12,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ApprovalRequestsComponent {
   columns: string[] = [
     'userId',
-    'userName',
-    'email',
+    'firstName',
+    'lastName',
     'userType',
+    'email',
     'createdOn',
     'approve',
   ];

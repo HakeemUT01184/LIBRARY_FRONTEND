@@ -27,9 +27,12 @@
               <tr>
                   <th>User ID</th>
                   <th>User Name</th>
-                  <th>Email</th>
+                  <!-- <th>Email</th> -->
+                  <th>Book ID</th>
                   <th>Order Date</th>
+
                   <th>Action</th>
+
               </tr>
           </thead>
           <tbody>
@@ -37,7 +40,8 @@
               <tr *ngFor="let order of ordersWithPendingReturns">
                   <td>{{ order.userId }}</td>
                   <td>{{ order.userName }}</td>
-                  <td>{{ order.email }}</td>
+                  <!-- <td>{{ order.email }}</td> -->
+                  <td>{{ order.bookId }}</td>
                   <td>{{ order.orderDate }}</td>
                   <td>
                       <!-- Example Action Button -->
@@ -67,7 +71,7 @@
               <tr>
                   <th>User ID</th>
                   <th>User Name</th>
-                  <th>Email</th>
+                  <!-- <th>Email</th> -->
                   <th>Return Date</th>
               </tr>
           </thead>
@@ -76,7 +80,7 @@
               <tr *ngFor="let order of ordersWithCompletedReturns">
                   <td>{{ order.userId }}</td>
                   <td>{{ order.userName }}</td>
-                  <td>{{ order.email }}</td>
+                  <!-- <td>{{ order.email }}</td> -->
                   <td>{{ order.returnDate }}</td>
               </tr>
           </tbody>
